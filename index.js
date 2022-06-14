@@ -8,7 +8,7 @@ const cors = require('cors');
 
 //Conectar mongo
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect('mongodb://localhost:27017/test', {
     useNewUrlParser: true
 })
 

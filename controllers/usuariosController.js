@@ -1,13 +1,13 @@
 const Usuarios = require('../models/Usuarios');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 exports.registrarUsuarios = async (req, res) => {
 
     //Leer datos de usuario
     const usuario = new Usuarios(req.body);
     usuario.password = await bcrypt.hash(req.body.password, 12);
-
+    bcryptjs
     try {
         await usuario.save();
         res.json({ mensaje: 'Usuario creado correctamente' });
